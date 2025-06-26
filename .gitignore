@@ -1,0 +1,24 @@
+# Root-level .gitignore
+
+# Ignore node modules for both frontend and backend
+docs/node_modules/
+server/node_modules/
+
+# Ignore build and logs
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Ignore environment files
+docs/.env
+server/.env
+
+# Vite / VS Code / OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Mac and Windows system files
+*.DS_Store
+*.Thumbs.db

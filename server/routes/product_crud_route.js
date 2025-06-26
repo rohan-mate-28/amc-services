@@ -1,0 +1,10 @@
+import express from "express";
+import { protuctAdmin } from "../middleware/isAunthicated.js";
+import { addProduct, deleteProduct, getAllProducts, updateProduct } from "../controller/product_crud_controller.js";
+import { singleUpload } from "../middleware/Multer.js";
+const router=express.Router();
+router.route("/addproduct").post(protuctAdmin,singleUpload,addProduct);
+router.route("/:id/updateproduct").put(protuctAdmin,updateProduct);
+router.route("/:id/drop").delete(protuctAdmin,deleteProduct);
+router.route("/getAllProducts").get(getAllProducts);
+export default router;
