@@ -12,7 +12,7 @@ const app=express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser())
-const port="http://localhost:5173";
+const port="https://stellar-shortbread-f58043.netlify.app/";
 const coreOptions={
       origin:port,
       credentials:true
