@@ -12,12 +12,16 @@ const app=express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser())
-const port="https://stellar-shortbread-f58043.netlify.app";
-const coreOptions={
-      origin:port,
-      credentials:true
-};
- app.use(cors(coreOptions));
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://stellar-shortbread-f58043.netlify.app"
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
+
 const PORTS=3020;
 app.use("/app/v1/customer",customerroute);
 app.use("/app/v1/admin",adminroute);
