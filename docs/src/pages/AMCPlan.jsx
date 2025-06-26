@@ -4,7 +4,7 @@ import { CheckCircle, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { CUSTOMER_ORDER_API_END_POINT } from "@/Utils/constant";
-import axios from "axios";
+import axios from "../Utils/axios/js";
 
 const plans = [
   {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../Utils/axios/js";
 import { useDispatch, useSelector } from "react-redux";
 import {
       setRequest,

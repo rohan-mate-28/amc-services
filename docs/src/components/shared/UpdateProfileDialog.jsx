@@ -11,7 +11,7 @@ DialogClose,
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Pencil } from "lucide-react";
-import axios from "axios";
+import axios from "../../Utils/axios.js";
 import { toast } from "sonner";
 import { CUSTOMER_API_END_POINT } from "@/Utils/constant";
 

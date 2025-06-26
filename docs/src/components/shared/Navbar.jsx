@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/sheet";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
-import axios from "axios";
+import axios from "../../Utils/axios.js";
 import { ADMIN_API_END_POINT, CUSTOMER_API_END_POINT } from "@/Utils/constant";
 import { setUser } from "@/redux/authSlice";
 import { persistor } from "@/redux/store";

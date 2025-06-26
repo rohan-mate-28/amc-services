@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios from "axios";
+import axios from "../Utils/axios/js";
 import { useDispatch, useSelector } from "react-redux";
 import { setMembers, setLoading, setError } from "@/redux/membersSlice";
 import { ADMIN_SERVICE_MEMBER_API_END_POINT } from "@/Utils/constant";

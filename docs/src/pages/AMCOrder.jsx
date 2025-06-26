@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios from "axios";
+import axios from "../Utils/axios/js";
 import { useDispatch, useSelector } from "react-redux";
 import { ADMIN_GET_ORDER_API_END_POINT } from "@/Utils/constant";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../Utils/axios/js";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setMemberHistoryLoading,
