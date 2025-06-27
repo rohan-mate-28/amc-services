@@ -17,10 +17,19 @@ const allowedOrigins = [
   "https://stellar-shortbread-f58043.netlify.app"
 ];
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 
 const PORTS=3020;
 app.use("/app/v1/customer",customerroute);

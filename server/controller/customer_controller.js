@@ -83,7 +83,7 @@ export const login = async (req, res) => {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         maxAge: 1 * 24 * 60 * 60 * 1000,
-        samesite: "None",
+        sameSite: "None",
       })
       .json({
         message: `Welcome back ${user.firstName}`,
