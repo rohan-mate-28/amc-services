@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "../Utils/axios/js";
+import axios from "../Utils/axios.js";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { CUSTOMER_SERVICE_API_END_POINT } from "@/Utils/constant";

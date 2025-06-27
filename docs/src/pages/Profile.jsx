@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder, setLoading } from "@/redux/orderSlice";
-import axios from "../Utils/axios/js";
+import axios from "../Utils/axios.js";
 import { CUSTOMER_ORDER_API_END_POINT } from "@/Utils/constant";
 import {
   Card,
