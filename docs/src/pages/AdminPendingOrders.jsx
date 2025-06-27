@@ -6,6 +6,7 @@ import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { setloadings, setPendingProduct } from "@/redux/pendingproductSlice";
+import { CUSTOMER_PRODUCT_API_END_POINT } from "@/Utils/constant.js";
 
 const AdminPendingOrders = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const AdminPendingOrders = () => {
     const fetchPendingOrders = async () => {
       dispatch(setloadings(true));
       try {
-        const res = await axios.get("http://localhost:3020/app/v1/product/pendingproduct", {
+        const res = await axios.get(`${CUSTOMER_PRODUCT_API_END_POINT}/pendingproduct`, {
           withCredentials: true,
         });
         dispatch(setPendingProduct(res.data.orders || [])); // ✅ Use `orders` not `products`
@@ -34,7 +35,7 @@ const AdminPendingOrders = () => {
     try {
       setConfirmingId(productId);
       const res = await axios.patch(
-        `http://localhost:3020/app/v1/product/${productId}/confirm`,
+        `${CUSTOMER_PRODUCT_API_END_POINT}/${productId}/confirm`,
         {},
         { withCredentials: true }
       );
