@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser())
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://stellar-shortbread-f58043.netlify.app"
+  "https://chimerical-treacle-110cc2.netlify.app"
 ];
 
 app.use(
