@@ -10,7 +10,6 @@ import productroute from "./routes/productroute.js"
 import product_crud_route from "./routes/product_crud_route.js"
 const app=express();
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
 app.use(cookieParser())
 const allowedOrigins = [
   "http://localhost:5173",
@@ -32,6 +31,7 @@ app.use(
 
 
 const PORTS=3020;
+app.use(express.urlencoded({extended:true}));
 app.use("/app/v1/customer",customerroute);
 app.use("/app/v1/admin",adminroute);
 app.use("/app/v1/admin/order",orderroute);
