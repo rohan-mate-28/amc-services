@@ -244,7 +244,7 @@ const ProductCarousel = () => {
                                                       decoding="async"
                                                       width={280}
                                                       height={160}
-                                                      src={product?.image?.url}
+                                                      src={product?.image?.url.replace("/upload/", "/upload/f_auto,q_auto/")}
                                                       alt={product?.name}
                                                       className="w-full h-40 object-cover rounded mb-2"
                                                 />
