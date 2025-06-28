@@ -239,13 +239,15 @@ const ProductCarousel = () => {
                                           className="snap-start min-w-[260px] max-w-[280px] min-h-[600]: flex-shrink-0 shadow-md border"
                                     >
                                           <CardContent className="p-4">
-                                                <div className="relative w-full aspect-[7/4] overflow-hidden rounded mb-2">
+                                                <div className="w-[280px] h-[180px] overflow-hidden rounded mb-2">
                                                       <img
                                                             loading="eager"
                                                             decoding="async"
-                                                            src={product?.image?.url.replace("/upload/", "/upload/f_auto,q_auto/")}
+                                                            width={280}
+                                                            height={180}
+                                                            src={product?.image?.url.replace("/upload/", "/upload/c_fill,g_auto,f_auto,q_auto/")}
                                                             alt={product?.name}
-                                                            className="absolute top-0 left-0 w-full h-full object-cover"
+                                                            className="w-full h-full object-cover"
                                                       />
                                                 </div>
 
