@@ -174,7 +174,7 @@ const ProductCarousel = () => {
                                                       setEditingProduct({ ...editingProduct, warranty: e.target.value })
                                                 }
                                           />
-                                          
+
                                           <Button
                                                 className="w-full"
                                                 onClick={async () => {
@@ -241,6 +241,8 @@ const ProductCarousel = () => {
                                           <CardContent className="p-4">
                                                 <img
                                                       loading="lazy"
+                                                      width={280}
+                                                      height={160}
                                                       src={product?.image?.url}
                                                       alt={product?.name}
                                                       className="w-full h-40 object-cover rounded mb-2"

@@ -8,7 +8,10 @@ import { persistStore } from 'redux-persist';
 
  import { PersistGate } from 'redux-persist/integration/react'
 const persistor = persistStore(store);
-
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) preloader.style.display = "none";
+});
 createRoot(document.getElementById('root')).render(
   <StrictMode>
       <Provider store={store}>
