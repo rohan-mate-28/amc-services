@@ -240,13 +240,15 @@ const ProductCarousel = () => {
                                     >
                                           <CardContent className="p-4">
                                                 <img
-                                                      loading="lazy"
+                                                      loading="eager"
+                                                      decoding="async"
                                                       width={280}
                                                       height={160}
                                                       src={product?.image?.url}
                                                       alt={product?.name}
                                                       className="w-full h-40 object-cover rounded mb-2"
                                                 />
+                                                
                                                 <h3 className="text-lg font-semibold text-gray-800">
                                                       {product?.name}
                                                 </h3>
