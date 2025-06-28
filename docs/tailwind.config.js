@@ -8,6 +8,9 @@ module.exports = {
       transitionProperty: {
         'opacity-transform': 'opacity, transform',
       },
+       fontFamily: {
+        sans: ['ui-sans-serif', 'system-ui'], 
+      },
     },
   },
   plugins: [],
