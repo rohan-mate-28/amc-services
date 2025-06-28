@@ -1,11 +1,22 @@
 import mongoose from "mongoose";
-const conectdb = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODBURL);
-    console.log("database connected");
-  } catch (e) {
-    console.error("❌ MongoDB connection failed:", e.message);
-    process.exit(1);  
-}   
+
+const conectdb = (onConnected) => {
+  const connectWithRetry = () => {
+    mongoose.connect(process.env.MONGODBURL, {
+      serverSelectionTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
+    })
+    .then(() => {
+      console.log("✅ MongoDB connected");
+      if (onConnected) onConnected();  
+    })
+    .catch((err) => {
+      console.error("❌ MongoDB connection failed, retrying in 5 sec...", err.message);
+      setTimeout(connectWithRetry, 5000);
+    });
+  };
+
+  connectWithRetry();
 };
+
 export default conectdb;

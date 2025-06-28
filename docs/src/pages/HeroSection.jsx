@@ -1,5 +1,5 @@
 import React from "react"
-import aquaPlumber from "@/assets/aquaPlumber.jpg"
+import aquaPlumber from "@/assets/aquaPlumber.webp"
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -41,6 +41,7 @@ const HeroSection = () => {
                         {/* Image */}
                         <div className="flex-1 flex justify-center">
                               <img
+                                    loading="lazy"
                                     src={aquaPlumber}
                                     alt="Aqua Services"
                                     className="max-w-sm sm:max-w-md rounded-xl shadow-md object-cover"

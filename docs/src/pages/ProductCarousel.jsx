@@ -240,6 +240,7 @@ const ProductCarousel = () => {
                                     >
                                           <CardContent className="p-4">
                                                 <img
+                                                      loading="lazy"
                                                       src={product?.image?.url}
                                                       alt={product?.name}
                                                       className="w-full h-40 object-cover rounded mb-2"
