@@ -239,16 +239,16 @@ const ProductCarousel = () => {
                                           className="snap-start min-w-[260px] max-w-[280px] min-h-[600]: flex-shrink-0 shadow-md border"
                                     >
                                           <CardContent className="p-4">
-                                                <img
-                                                      loading="eager"
-                                                      decoding="async"
-                                                      width={280}
-                                                      height={160}
-                                                      src={product?.image?.url.replace("/upload/", "/upload/f_auto,q_auto/")}
-                                                      alt={product?.name}
-                                                      className="w-full h-40 object-cover rounded mb-2"
-                                                />
-                                                
+                                                <div className="relative w-full aspect-[7/4] overflow-hidden rounded mb-2">
+                                                      <img
+                                                            loading="eager"
+                                                            decoding="async"
+                                                            src={product?.image?.url.replace("/upload/", "/upload/f_auto,q_auto/")}
+                                                            alt={product?.name}
+                                                            className="absolute top-0 left-0 w-full h-full object-cover"
+                                                      />
+                                                </div>
+
                                                 <h3 className="text-lg font-semibold text-gray-800">
                                                       {product?.name}
                                                 </h3>
