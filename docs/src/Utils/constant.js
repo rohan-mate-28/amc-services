@@ -9,4 +9,4 @@ export const ADMIN_SERVICE_MEMBER_API_END_POINT = `${BASE_URL}/admin/services`;
 export const ADMIN_GET_ORDER_API_END_POINT = `${BASE_URL}/admin/order`;
 export const CUSTOMER_PRODUCT_API_END_POINT = `${BASE_URL}/product`;
 export const PRODUCT_API_END_POINT = `${BASE_URL}/crudsproduct`;
-export const ADMIN_PRODUCT_API_END_POINT = `${BASE_URL}/admin`;
+export const ADMIN_PRODUCT_API_END_POINT = `${BASE_URL}/product`;

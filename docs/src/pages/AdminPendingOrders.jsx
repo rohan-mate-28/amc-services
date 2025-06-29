@@ -10,7 +10,7 @@ import { ADMIN_PRODUCT_API_END_POINT } from "@/Utils/constant.js";
 
 const AdminPendingOrders = () => {
   const dispatch = useDispatch();
-  const { PendingProduct, loadings } = useSelector((state) => state.pendingProduct); // ✅ Fix spelling
+  const { PendingProduct, loadings } = useSelector((state) => state.pendingProduct);  
    const [confirmingId, setConfirmingId] = useState(null);
 
   useEffect(() => {
