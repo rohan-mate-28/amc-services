@@ -236,34 +236,36 @@ const ProductCarousel = () => {
                               {products.map((product) => (
                                     <Card
                                           key={product._id}
-                                          className="snap-start min-w-[260px] max-w-[280px] min-h-[600]: flex-shrink-0 shadow-md border"
+                                          className="snap-start min-w-[260px] sm:min-w-[280px] w-[280px] flex-shrink-0 shadow-md border bg-white"
                                     >
                                           <CardContent className="p-4">
-                                                <div className="w-full h-[200px] rounded overflow-hidden bg-white">
+                                                {/* Optimized image container */}
+                                                <div className="w-full aspect-[4/3] rounded overflow-hidden bg-white mb-3">
                                                       <img
-                                                            src={product?.image?.url.replace("/upload/", "/upload/c_fill,g_auto,f_auto,q_auto/")}
-                                                            alt={product?.name}
-                                                            width={280}
-                                                            height={200}
-                                                            loading="eager"
+                                                            loading="lazy"
                                                             decoding="async"
-                                                            className="w-full h-full object-cover"
+                                                            width={280}
+                                                            height={210}
+                                                            src={product?.image?.url.replace("/upload/", "/upload/f_auto,q_auto/")}
+                                                            alt={product?.name || "Water Purifier Product"}
+                                                            className="w-full h-full object-contain"
                                                       />
                                                 </div>
 
-                                                <h3 className="text-lg font-semibold text-gray-800">
+                                                <h3 className="text-lg font-semibold text-gray-800 mb-1">
                                                       {product?.name}
                                                 </h3>
-                                                <ul className="text-sm text-gray-600 list-disc list-inside my-2 max-h-[80px] overflow-auto">
+
+                                                <ul className="text-sm text-gray-600 list-disc list-inside my-2 max-h-[80px] overflow-auto pr-1">
                                                       {Array.isArray(product.features)
                                                             ? product.features.map((feature, index) => (
                                                                   <li key={index}>{feature}</li>
                                                             ))
                                                             : null}
-
                                                 </ul>
-                                                <div className="mt-2">
-                                                      <p className="text-blue-600 font-semibold">
+
+                                                <div className="mt-2 mb-2">
+                                                      <p className="text-blue-600 font-semibold text-base">
                                                             ₹{product.discountPrice || product.price}
                                                             {product.discountPrice && (
                                                                   <span className="text-sm text-gray-400 line-through ml-1">
@@ -278,7 +280,7 @@ const ProductCarousel = () => {
 
                                                 {isAdmin ? (
                                                       <Button
-                                                            className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white"
+                                                            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                                                             onClick={() => handleBookProduct(product._id)}
                                                             disabled={bookingProductId === product._id}
                                                       >
@@ -292,7 +294,7 @@ const ProductCarousel = () => {
                                                             )}
                                                       </Button>
                                                 ) : (
-                                                      <div className="flex flex-col gap-2 mt-4">
+                                                      <div className="flex flex-col gap-2">
                                                             <Button
                                                                   className="w-full bg-red-600 hover:bg-red-700 text-white"
                                                                   onClick={() => deletehandlerproduct(product._id)}
@@ -318,7 +320,6 @@ const ProductCarousel = () => {
                                                             >
                                                                   Edit Product
                                                             </Button>
-
                                                       </div>
                                                 )}
                                           </CardContent>
@@ -326,6 +327,7 @@ const ProductCarousel = () => {
                               ))}
                         </div>
                   </div>
+
             </>
       );
 };

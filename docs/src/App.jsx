@@ -75,8 +75,9 @@ function App() {
 
   return (
     <>
-    <Suspense fallback={<div className="text-center py-10 text-blue-600">Loading Page...</div>}></Suspense>
+    <Suspense fallback={<div className="text-center py-10 text-blue-600">Loading Page...</div>}>
       <RouterProvider router={appRouter} />
+    </Suspense>
       <Toaster richColors position="top-right" />
 
     </>

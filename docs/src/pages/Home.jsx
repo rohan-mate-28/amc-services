@@ -1,10 +1,11 @@
-import Navbar from '../components/shared/Navbar.jsx';
+import { lazy } from 'react';
+const Navbar=lazy(()=>import("../components/shared/Navbar.jsx"));
 import React from 'react'
-import HeroSection from './HeroSection.jsx';
-import Footer from './Footer.jsx';
-import FAQSection from './FAQSection.jsx';
-import ProductCarousel from './ProductCarousel.jsx';
-
+const HeroSection=lazy(()=>import("./HeroSection.jsx"));
+const Footer =lazy(()=>import ("./Footer.jsx"));
+const FAQSection =lazy(()=>import("./FAQSection.jsx"));
+const ProductCarousel=lazy(()=>import ("./ProductCarousel.jsx"));
+ 
 const Home = () => {
   return (
     <div>
