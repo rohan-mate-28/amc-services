@@ -266,10 +266,10 @@ const ProductCarousel = () => {
 
                                                 <div className="mt-2 mb-2">
                                                       <p className="text-blue-600 font-semibold text-base">
-                                                            ₹{product.discountPrice || product.price}
-                                                            {product.discountPrice && (
+                                                            ₹{product.price || product.discountPrice}
+                                                            {product.price && (
                                                                   <span className="text-sm text-gray-400 line-through ml-1">
-                                                                        ₹{product.price}
+                                                                        ₹{product.discountPrice}
                                                                   </span>
                                                             )}
                                                       </p>

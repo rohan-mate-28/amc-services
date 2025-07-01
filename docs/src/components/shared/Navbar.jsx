@@ -70,7 +70,6 @@ const logoutHandler = async () => {
           <li><Link to="/admin/request">AMC Requests</Link></li>
           <li><Link to="/admin/products">ADD Products</Link></li>
           <li><Link to="/admin/pendingorders">Products Orders</Link></li>
-           
         </>
       )}
       {user && !isAdmin && (
