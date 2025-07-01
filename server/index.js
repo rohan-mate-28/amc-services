@@ -9,7 +9,7 @@ import orderroute from "./routes/orderroute.js";
 import servicesroute from "./routes/servicesroute.js";
 import productroute from "./routes/productroute.js";
 import product_crud_route from "./routes/product_crud_route.js";
-
+import ping from "./routes/ping.js";
 const app = express();
 const PORTS = process.env.PORT || 3020;
 
@@ -32,7 +32,7 @@ app.use(cors({
   },
   credentials: true,
 }));
-
+ 
 // Routes
 app.use("/app/v1/customer", customerroute);
 app.use("/app/v1/admin", adminroute);
@@ -42,7 +42,7 @@ app.use("/app/v1/customer/services", servicesroute);
 app.use("/app/v1/admin/services", servicesroute);
 app.use("/app/v1/product", productroute);
 app.use("/app/v1/crudsproduct", product_crud_route);
-
+app.use("/app/v1",ping);
  
 conectdb(() => {
   app.listen(PORTS, () => {

@@ -65,8 +65,7 @@ const logoutHandler = async () => {
       )}
       {user && isAdmin && (
         <>
-          <li><Link to="/admin/dashboard">Dashboard</Link></li>
-          <li><Link to="/admin/members">Members</Link></li>
+           <li><Link to="/admin/members">Members</Link></li>
           <li><Link to="/admin/orders">AMC Orders</Link></li>
           <li><Link to="/admin/request">AMC Requests</Link></li>
           <li><Link to="/admin/products">ADD Products</Link></li>
