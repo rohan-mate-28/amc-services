@@ -16,6 +16,16 @@ const OrderConfirmationBox = () => {
         +91 98765 43210
       </div>
 
+      {/* Call Now Button */}
+      <div className="flex justify-center mt-4">
+        <a
+          href="tel:+919876543210"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition duration-200"
+        >
+          Call Now
+        </a>
+      </div>
+
       <p className="text-xs sm:text-sm text-center text-gray-500 mt-2">
         Once confirmed, your product will be activated by our team manually.
       </p>
