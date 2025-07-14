@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { lazy, Suspense } from "react"
 import { Toaster } from "./components/ui/sonner.jsx"
+// import AuthValidotor from "./pages/AuthValidotor.jsx"
 
 const Home = lazy(() => import("./pages/Home.jsx"))
 const Login = lazy(() => import("./pages/Login.jsx"))
@@ -75,6 +76,7 @@ function App() {
 
   return (
     <>
+    {/* <AuthValidotor/> */}
     <Suspense fallback={<div className="text-center py-10 text-blue-600">Loading Page...</div>}>
       <RouterProvider router={appRouter} />
     </Suspense>

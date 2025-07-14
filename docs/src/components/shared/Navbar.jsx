@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { LogOut, User2, Menu, Loader2 } from "lucide-react";
@@ -18,13 +18,37 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import axios from "../../Utils/axios.js";
 import { ADMIN_API_END_POINT, CUSTOMER_API_END_POINT } from "@/Utils/constant";
-import { setUser } from "@/redux/authSlice";
+import { logout, setUser } from "@/redux/authSlice";
 import { persistor } from "@/redux/store";
 
 const Navbar = () => {
    const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+ 
+useEffect(() => {
+  const validateAuth = async () => {
+    try {
+      const res = await axios.get(`${ADMIN_API_END_POINT}/me`);
+      dispatch(setUser({ ...res.data.user, role: "admin" }));
+    } catch (adminErr) {
+      try {
+        const res = await axios.get(`${CUSTOMER_API_END_POINT}/me`);
+        dispatch(setUser({ ...res.data.user, role: "customer" }));
+      } catch (customerErr) {
+        console.error("❌ Auth failed for both admin and customer:", adminErr, customerErr);
+        // Optionally redirect to login or clear auth
+        dispatch(logout());
+        navigate("/login");
+      }
+    }
+  };
+
+  validateAuth();
+}, []);
+
+
   const isAdmin = user?.email === "rohanmate157@gmail.com";
 
   const [loggingOut, setLoggingOut] = useState(false);
