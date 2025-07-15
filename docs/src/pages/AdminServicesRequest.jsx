@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
       setRequest,
@@ -30,7 +30,7 @@ const AdminServiceRequests = () => {
             const fetchRequests = async () => {
                   try {
                         dispatch(setloading(true));
-                        const { data } = await axios.get(`${ADMIN_SERVICE_MEMBER_API_END_POINT}/getPendingServiceRequests`, {
+                        const { data } = await axiosInstance.get(`${ADMIN_SERVICE_MEMBER_API_END_POINT}/getPendingServiceRequests`, {
                               withCredentials: true,
                         });
                         dispatch(setRequest(data.requests || []));
@@ -63,7 +63,7 @@ const AdminServiceRequests = () => {
 
             try {
                   dispatch(setloading(true));
-                  const res = await axios.post(
+                  const res = await axiosInstance.post(
                         `${ADMIN_SERVICE_MEMBER_API_END_POINT}/${id}/completeServiceRequest`,
                         payload,
                         {

@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CUSTOMER_API_END_POINT } from "@/Utils/constant";
@@ -32,7 +32,7 @@ const Register = () => {
     e.preventDefault();
     try {
       dispatch(setloading(true));
-      const { data } = await axios.post(`${CUSTOMER_API_END_POINT}/register`,
+      const { data } = await axiosInstance.post(`${CUSTOMER_API_END_POINT}/register`,
         form,
         { withCredentials: true }
       );

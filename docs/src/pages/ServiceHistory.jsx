@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { CUSTOMER_SERVICE_API_END_POINT } from "@/Utils/constant";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
@@ -11,7 +11,7 @@ const [loading, setLoading] = useState(false);
 const fetchHistory = async () => {
 try {
 setLoading(true);
-const { data } = await axios.get(
+const { data } = await axiosInstance.get(
 `${CUSTOMER_SERVICE_API_END_POINT}/getMyServiceHistory`,
 { withCredentials: true }
 );

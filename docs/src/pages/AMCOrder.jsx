@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { useDispatch, useSelector } from "react-redux";
 import { ADMIN_GET_ORDER_API_END_POINT } from "@/Utils/constant";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,7 +17,7 @@ const AMCOrder = () => {
     const fetchOrders = async () => {
       try {
         dispatch(setAMCOrderLoading(true));
-        const { data } = await axios.get(`${ADMIN_GET_ORDER_API_END_POINT}/getAllOrder`, {
+        const { data } = await axiosInstance.get(`${ADMIN_GET_ORDER_API_END_POINT}/getAllOrder`, {
           withCredentials: true,
         });
         dispatch(setAMCOrders(data.orders || []));
@@ -36,7 +36,7 @@ const AMCOrder = () => {
     try {
       dispatch(setAMCOrderLoading(true));
 
-      const confirmRes = await axios.patch(
+      const confirmRes = await axiosInstance.patch(
         `${ADMIN_GET_ORDER_API_END_POINT}/${orderId}/confirmOrder`,
         {},
         { withCredentials: true }
@@ -44,7 +44,7 @@ const AMCOrder = () => {
 
       if (confirmRes.data.success) {
         toast.success(confirmRes.data.message);
-        const allOrdersRes = await axios.get(`${ADMIN_GET_ORDER_API_END_POINT}/getAllOrder`, {
+        const allOrdersRes = await axiosInstance.get(`${ADMIN_GET_ORDER_API_END_POINT}/getAllOrder`, {
           withCredentials: true,
         });
         dispatch(setAMCOrders(allOrdersRes.data.orders));

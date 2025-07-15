@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts, setLoading } from "@/redux/productSlice";
 import {
@@ -36,7 +36,7 @@ const ProductCarousel = () => {
             const fetchProducts = async () => {
                   try {
                         dispatch(setLoading(true));
-                        const { data } = await axios.get(
+                        const { data } = await axiosInstance.get(
                               `${PRODUCT_API_END_POINT}/getAllProducts`,
                               { withCredentials: true }
                         );
@@ -68,7 +68,7 @@ const ProductCarousel = () => {
             try {
 
                   setBookingProductId(productId);
-                  const res = await axios.post(
+                  const res = await axiosInstance.post(
                         `${CUSTOMER_PRODUCT_API_END_POINT}/bookproduct`,
                         { productId },
                         { withCredentials: true }
@@ -94,7 +94,7 @@ const ProductCarousel = () => {
       const deletehandlerproduct = async (productId) => {
             try {
                   setBookingProductId(productId);
-                  const res = await axios.delete(
+                  const res = await axiosInstance.delete(
                         `${PRODUCT_API_END_POINT}/${productId}/drop`,
                         { withCredentials: true }
                   );
@@ -183,7 +183,7 @@ const ProductCarousel = () => {
                                                                   ...editingProduct,
                                                             };
 
-                                                            const res = await axios.put(
+                                                            const res = await axiosInstance.put(
                                                                   `${PRODUCT_API_END_POINT}/${editingProduct._id}/updateproduct`,
                                                                   updated,
                                                                   { withCredentials: true }

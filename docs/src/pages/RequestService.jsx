@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { CUSTOMER_SERVICE_API_END_POINT } from "@/Utils/constant";
@@ -20,7 +20,7 @@ const RequestService = () => {
 
             try {
                   setLoading(true);
-                  const res = await axios.post(
+                  const res = await axiosInstance.post(
                         `${CUSTOMER_SERVICE_API_END_POINT}/raiseServiceRequest`,
                         { issue },
                         { withCredentials: true }

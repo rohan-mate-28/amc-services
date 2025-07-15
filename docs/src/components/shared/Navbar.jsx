@@ -21,32 +21,37 @@ import { ADMIN_API_END_POINT, CUSTOMER_API_END_POINT } from "@/Utils/constant";
 import { logout, setUser } from "@/redux/authSlice";
 import { persistor } from "@/redux/store";
 
-const Navbar = () => {
+ const Navbar = () => {
    const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
- 
-useEffect(() => {
-  const validateAuth = async () => {
-    try {
-      const res = await axios.get(`${ADMIN_API_END_POINT}/me`);
-      dispatch(setUser({ ...res.data.user, role: "admin" }));
-    } catch (adminErr) {
-      try {
-        const res = await axios.get(`${CUSTOMER_API_END_POINT}/me`);
-        dispatch(setUser({ ...res.data.user, role: "customer" }));
-      } catch (customerErr) {
-        console.error("❌ Auth failed for both admin and customer:", adminErr, customerErr);
-        // Optionally redirect to login or clear auth
-        dispatch(logout());
-        navigate("/login");
-      }
-    }
-  };
 
-  validateAuth();
-}, []);
+//  useEffect(() => {
+//   const validateAuth = async () => {
+//     try {
+//       const res = await axiosInstance.get(`${ADMIN_API_END_POINT}/me`, {
+//         withCredentials: true,
+//       });
+//       dispatch(setUser(res.data.user));
+//     } catch {
+//       try {
+//         const res = await axiosInstance.get(`${CUSTOMER_API_END_POINT}/me`, {
+//           withCredentials: true,
+//         });
+//         dispatch(setUser(res.data.user));
+//       } catch {
+//         dispatch(setUser(false)); // 🚫 Mark as not logged in
+//       }
+//     }
+//   };
+
+//   if (user === null) validateAuth(); // Only check once if unknown
+// }, [user, dispatch]);
+
+
+
+
 
 
   const isAdmin = user?.email === "rohanmate157@gmail.com";
@@ -60,7 +65,7 @@ const logoutHandler = async () => {
       ? `${ADMIN_API_END_POINT}/logout`
       : `${CUSTOMER_API_END_POINT}/logout`;
 
-    const res = await axios.get(endpoint, { withCredentials: true });
+    const res = await axiosInstance.get(endpoint, { withCredentials: true });
 
     if (res.data.success) {
       

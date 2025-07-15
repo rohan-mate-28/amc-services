@@ -4,7 +4,7 @@ import { CheckCircle, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { CUSTOMER_ORDER_API_END_POINT } from "@/Utils/constant";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 
 const plans = [
   {
@@ -50,7 +50,7 @@ const AMCPlans = () => {
   useEffect(() => {
     const checkExistingPlan = async () => {
       try {
-        const res = await axios.get(`${CUSTOMER_ORDER_API_END_POINT}/myOrders`, {
+        const res = await axiosInstance.get(`${CUSTOMER_ORDER_API_END_POINT}/myOrders`, {
           withCredentials: true,
         });
 
@@ -70,7 +70,7 @@ const AMCPlans = () => {
   const handlePlanSelect = async (planType) => {
     setLoadingPlan(planType);
     try {
-      const { data } = await axios.post(
+      const { data } = await axiosInstance.post(
         `${CUSTOMER_ORDER_API_END_POINT}/buyplan`,
         { planType },
         { withCredentials: true }

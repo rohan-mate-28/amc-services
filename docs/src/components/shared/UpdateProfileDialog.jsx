@@ -25,7 +25,7 @@ const [loading, setLoading] = useState(false);
 const handleUpdate = async () => {
 setLoading(true);
 try {
-const res = await axios.post(
+const res = await axiosInstance.post(
 `${CUSTOMER_API_END_POINT}/updateprofile`,
 {
 firstName,

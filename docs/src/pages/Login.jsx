@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setloading, setUser } from "@/redux/authSlice";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +33,7 @@ const Login = () => {
         form?.email === "rohanmate157@gmail.com"
           ? `${ADMIN_API_END_POINT}/login`
           : `${CUSTOMER_API_END_POINT}/login`;
-      const { data } = await axios.post(
+      const { data } = await axiosInstance.post(
         `${endpoint}`,
         form,
         { withCredentials: true }

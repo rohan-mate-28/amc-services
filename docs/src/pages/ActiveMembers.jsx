@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setMembers, setLoading, setError } from "@/redux/membersSlice";
 import { ADMIN_SERVICE_MEMBER_API_END_POINT } from "@/Utils/constant";
@@ -17,7 +17,7 @@ const ActiveMembers = () => {
     const fetchMembers = async () => {
       try {
         dispatch(setLoading(true));
-        const { data } = await axios.get(`${ADMIN_SERVICE_MEMBER_API_END_POINT}/getAllMembers`, {
+        const { data } = await axiosInstance.get(`${ADMIN_SERVICE_MEMBER_API_END_POINT}/getAllMembers`, {
           withCredentials: true,
         });
         dispatch(setMembers(data.members || []));

@@ -4,7 +4,7 @@ import { protuctAdmin } from "../middleware/isAunthicated.js";
 const router=express.Router();
 router.route("/login").post(login);
 router.route("/logout").get(protuctAdmin,logout);
-router.get("/me",protuctAdmin, (req, res) => {
-  res.status(200).json({ user: req.user });
-});
+// router.get("/me",protuctAdmin, (req, res) => {
+//   res.status(200).json({ user: req.user });
+// });
 export default router;

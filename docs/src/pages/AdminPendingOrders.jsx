@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
@@ -17,7 +17,7 @@ const AdminPendingOrders = () => {
     const fetchPendingOrders = async () => {
       dispatch(setloadings(true));
       try {
-        const res = await axios.get(`${ADMIN_PRODUCT_API_END_POINT}/pendingproduct`, {
+        const res = await axiosInstance.get(`${ADMIN_PRODUCT_API_END_POINT}/pendingproduct`, {
           withCredentials: true,
         });
         dispatch(setPendingProduct(res.data.orders || [])); // ✅ Use `orders` not `products`
@@ -34,7 +34,7 @@ const AdminPendingOrders = () => {
   const handleConfirm = async (productId) => {
     try {
       setConfirmingId(productId);
-      const res = await axios.patch(
+      const res = await axiosInstance.patch(
         `${ADMIN_PRODUCT_API_END_POINT}/${productId}/confirm`,
         {},
         { withCredentials: true }

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setMemberHistoryLoading,
@@ -19,7 +19,7 @@ const MemberHistory = () => {
     const fetchHistory = async () => {
       try {
         dispatch(setMemberHistoryLoading(true));
-        const { data } = await axios.get(`${ADMIN_SERVICE_MEMBER_API_END_POINT}/${customerId}/getCustomerServices`, {
+        const { data } = await axiosInstance.get(`${ADMIN_SERVICE_MEMBER_API_END_POINT}/${customerId}/getCustomerServices`, {
           withCredentials: true,
         });
         dispatch(setMemberHistoryRecords(data.records || []));

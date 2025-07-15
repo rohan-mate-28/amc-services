@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/Redux/authSlice";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ const Adminlogin = () => {
     }
 
     try {
-      const { data } = await axios.post(
+      const { data } = await axiosInstance.post(
         `${ADMIN_API_END_POINT}/login`,
         form,
         { withCredentials: true }

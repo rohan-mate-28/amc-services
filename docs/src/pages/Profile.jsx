@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder, setLoading } from "@/redux/orderSlice";
-import axios from "../Utils/axios.js";
+import axiosInstance from "../Utils/axios.js";
 import { CUSTOMER_ORDER_API_END_POINT } from "@/Utils/constant";
 import {
   Card,
@@ -24,7 +24,7 @@ const Profile = () => {
     const fetchMyOrders = async () => {
       try {
         dispatch(setLoading(true));
-        const res = await axios.get(`${CUSTOMER_ORDER_API_END_POINT}/myOrders`, {
+        const res = await axiosInstance.get(`${CUSTOMER_ORDER_API_END_POINT}/myOrders`, {
           withCredentials: true,
         });
         dispatch(setOrder(res.data.orders));
