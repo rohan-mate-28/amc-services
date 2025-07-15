@@ -6,7 +6,7 @@ const protuctCustomer = async (req, res, next) => {
     const token = req.cookies.token;
     if (!token) {
       return res.status(401).json({
-        message: "User not Aunthecated",
+        message: "Login Please",
         success: false,
       });
     }
@@ -34,7 +34,7 @@ const protuctCustomer = async (req, res, next) => {
     const token=req.cookies.token;
     if(!token){
       return res.status(401).json({
-        message:"Admin to Anuthicated",
+        message:"Login Please",
         success:false,
       });
     }

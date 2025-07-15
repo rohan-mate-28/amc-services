@@ -11,7 +11,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       store.dispatch(logout());
-      window.location.href = "/"; // or use navigate if available
+      window.location.href = "/login"; // or use navigate if available
     }
     return Promise.reject(error);
   }
