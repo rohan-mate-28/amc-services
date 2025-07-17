@@ -16,7 +16,7 @@ const authSlice = createSlice({
       state.role = action.payload.role || null; // extracted from API or use logic
     },
     logout(state) {
-      state.user = null;
+      state.user = false;
       state.role = null;
     },
   },
