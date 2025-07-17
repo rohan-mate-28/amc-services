@@ -6,7 +6,5 @@ router.route("/login").post(login);
 router.route("/register").post(register);
 router.route("/logout").post(logout);
 router.route("/updateprofile").post(protuctCustomer,updateprofile);
-// router.get("/me", protuctCustomer, (req, res) => {
-//   res.status(200).json({ user: req.user });
-// });
+ 
 export default router;
