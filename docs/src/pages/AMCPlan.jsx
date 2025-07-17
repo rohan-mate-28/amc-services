@@ -14,7 +14,7 @@ const plans = [
     duration: "Valid for 12 months",
     discount: "33% OFF",
     features: [
-      "3 Free Services",
+      "Every 3/Month Services",
       "Free Part Replacement",
       "Priority Support",
       "Expert Technician Visit",
@@ -30,7 +30,7 @@ const plans = [
     duration: "Valid for 48 months",
     discount: "33% OFF",
     features: [
-      "12 Free Services",
+      "Every 3/Month Services",
       "Free Part Replacement Anytime",
       "Dedicated Technician",
       "Priority Call Handling",

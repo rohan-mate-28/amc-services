@@ -119,10 +119,9 @@ export const logout = async (req, res) => {
     });
   }
 };
-
 export const updateprofile = async (req, res) => {
   try {
-    const { firstName, lastName, password,phone } = req.body;
+    const { firstName, lastName, password, phone } = req.body;
     const user = await Customer.findById(req.user._id);
     if (!user) {
       return res.status(404).json({
@@ -133,29 +132,26 @@ export const updateprofile = async (req, res) => {
 
     if (firstName) user.firstName = firstName;
     if (lastName) user.lastName = lastName;
-   if (phone) user.phone = phone;
+    if (phone) user.phone = phone;
     if (password) {
       const hashedpassword = await bcrypt.hash(password, 10);
       user.password = hashedpassword;
     }
+
     await user.save();
 
-    return res.status(201).json({
-      message: "Profile Update Successfully",
+    // strip password
+    const { password: _pw, ...updatedUser } = user.toObject();
+
+    return res.status(200).json({
+      message: "Profile updated successfully",
       success: true,
+      user: updatedUser,   // <-- key name: user
     });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ message: "Server error", success: false });
+    return res
+      .status(500)
+      .json({ message: "Server error", success: false });
   }
-};
-// import {v2 as cloudinary} from "cloudinary";
-// cloudinary.config({
-//       cloud_name:process.env.CLOUD_NAME,
-//       cloud_Api_key:process.env.API_KEY,
-//       cloud_api_screate:process.env.API_SECRET
-// });
-// export default cloudinary;
-// console.log(process.env.API_SECRET)
-// console.log(process.env.CLOUD_NAME)
-// console.log(process.env.API_KEY)
+}; 

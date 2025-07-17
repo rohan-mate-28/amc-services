@@ -1,21 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  loading: false,
+  user: null,
+  role: null,
+};
+
 const authSlice = createSlice({
   name: "auth",
-  initialState: {
-    loading: false,
-    user: null,
-    role: null,
-  },
+  initialState,
   reducers: {
     setloading: (state, action) => {
       state.loading = action.payload;
     },
     setUser: (state, action) => {
-      state.user = action.payload;
-      state.role = action.payload.role || null; // extracted from API or use logic
+      const payload = action.payload;
+      if (!payload) {
+        // treat as logged out fallback
+        state.user = false;
+        state.role = null;
+        return;
+      }
+      state.user = payload;
+      state.role = payload.role || null;
     },
-    logout(state) {
+    logout: (state) => {
       state.user = false;
       state.role = null;
     },

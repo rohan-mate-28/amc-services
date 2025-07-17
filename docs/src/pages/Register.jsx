@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CUSTOMER_API_END_POINT } from "@/Utils/constant";
 import { Loader2 } from "lucide-react";
-import { setloading, setUser } from "@/redux/authSlice";
+import { setloading } from "@/redux/authSlice";
 
 const Register = () => {
   const { loading } = useSelector((store) => store.auth);
@@ -38,12 +38,12 @@ const Register = () => {
       );
       if (data.success) {
         toast.success("Registration successful");
-        dispatch(setUser(data.user));
+         
         navigate("/login");
       }
     } catch (err) {
       console.error(err);
-      toast.error(err.response?.data?.message || "Registration failed");
+       
     } finally {
       dispatch(setloading(false));
     }
