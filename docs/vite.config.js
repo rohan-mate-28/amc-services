@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from "path"
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import {visualizer} from 'rollup-plugin-visualizer'
 
 export default defineConfig({
   plugins: [
@@ -13,7 +14,8 @@ export default defineConfig({
           dest: '.'              
         }
       ]
-    })
+    }),
+      visualizer({ open: true }),
   ],
   resolve: {
     alias: {

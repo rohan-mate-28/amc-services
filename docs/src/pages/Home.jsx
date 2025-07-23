@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 const Navbar=lazy(()=>import("../components/shared/Navbar.jsx"));
 import React from 'react'
 const StatsSection = lazy(() => import('./StatsSection.jsx'));
@@ -12,12 +12,25 @@ const Home = () => {
     <div>
        <Navbar/>
        <HeroSection/>
-       <ProductCarousel/>
-       <StatsSection/>
-       <FAQSection/>
-       <CustomerReviews/>
-       {/* Add more sections as needed */}
-       <Footer/>
+       <Suspense fallback={<div>Loading Products...</div>}>
+        <ProductCarousel />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Stats...</div>}>
+        <StatsSection />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading FAQs...</div>}>
+        <FAQSection />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Reviews...</div>}>
+        <CustomerReviews />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Footer...</div>}>
+        <Footer />
+      </Suspense>
     </div>
   )
 }

@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "How do I Make Service  Request  ?",
     answer:
-      "Once logged in, click on 'Service Request' from the dashboard and fill in your issue details.",
+      "Once logged in, Go to Profile Section, click on 'Service Request' from the dashboard and fill in your issue details.",
   },
   {
     question: "Is the part replacement really free?",
