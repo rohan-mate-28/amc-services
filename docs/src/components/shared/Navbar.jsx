@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+// import React, { useEffect, useState, useRef } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { LogOut, User2, Menu, Loader2 } from "lucide-react";
@@ -14,8 +15,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import axiosInstance from "../../Utils/axios.js";
 import { ADMIN_API_END_POINT, CUSTOMER_API_END_POINT } from "@/Utils/constant";
-import { logout as logoutAction, setUser } from "@/redux/authSlice";
+import { logout as logoutAction } from "@/redux/authSlice";
 import { persistor } from "@/redux/store";
+import { useState } from "react";
 
 // Admin email logic
 const ADMIN_EMAIL = "rohanmate157@gmail.com";
@@ -31,34 +33,34 @@ const Navbar = () => {
   // ---------------------------------------
   // AUTH CHECK ONCE AT APP LOAD
   // ---------------------------------------
-  const hasCheckedRef = useRef(false);
-  useEffect(() => {
-    if (user !== null) return; // Already resolved
-    if (hasCheckedRef.current) return;
-    hasCheckedRef.current = true;
+  // const hasCheckedRef = useRef(false);
+  // useEffect(() => {
+  //   if (user !== null) return; // Already resolved
+  //   if (hasCheckedRef.current) return;
+  //   hasCheckedRef.current = true;
 
-    const checkAuth = async () => {
-      try {
-        const { data } = await axiosInstance.get(`${ADMIN_API_END_POINT}/me`, { withCredentials: true });
-        dispatch(setUser({ ...data.user, role: "admin" }));
-        return;
-      } catch (e) {
-                console.warn("No active session:", e?.response?.status);
+  //   const checkAuth = async () => {
+  //     try {
+  //       const { data } = await axiosInstance.get(`${ADMIN_API_END_POINT}/me`, { withCredentials: true });
+  //       dispatch(setUser({ ...data.user, role: "admin" }));
+  //       return;
+  //     } catch (e) {
+  //               console.warn("No active session:", e?.response?.status);
 
-      }
+  //     }
 
-      try {
-        const { data } = await axiosInstance.get(`${CUSTOMER_API_END_POINT}/me`, { withCredentials: true });
-        dispatch(setUser({ ...data.user, role: "customer" }));
-        return;
-      } catch (err) {
-        console.warn("No active session:", err?.response?.status);
-        dispatch(logoutAction()); // user = false
-      }
-    };
+  //     try {
+  //       const { data } = await axiosInstance.get(`${CUSTOMER_API_END_POINT}/me`, { withCredentials: true });
+  //       dispatch(setUser({ ...data.user, role: "customer" }));
+  //       return;
+  //     } catch (err) {
+  //       console.warn("No active session:", err?.response?.status);
+  //       dispatch(logoutAction()); // user = false
+  //     }
+  //   };
 
-    checkAuth();
-  }, [user, dispatch]);
+  //   checkAuth();
+  // }, [user, dispatch]);
 
   // ---------------------------------------
   // LOGOUT HANDLER

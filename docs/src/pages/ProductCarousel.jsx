@@ -172,7 +172,6 @@ const ProductCarousel = () => {
                      decoding="async"
                      width={280}
                     height={210}
-                     
                     src={product?.image?.url.replace(
                       "/upload/",
                       "/upload/f_auto,q_auto,w_280/"
