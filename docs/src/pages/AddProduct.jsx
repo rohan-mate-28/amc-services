@@ -129,7 +129,7 @@ const AddProduct = () => {
         </div>
         <div>
           <Label>Product Image</Label>
-          <Input type="file" name="file" accept="image/*" onChange={handleFileChange} />
+          <Input type="file" name="image" accept="image/*" onChange={handleFileChange} />
         </div>
 
         <Button type="submit" className="w-full mt-2" disabled={loading}>

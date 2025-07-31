@@ -60,6 +60,9 @@ const ActiveMembers = () => {
                 </CardHeader>
                 <CardContent className="space-y-1 text-sm text-gray-700">
                   <p><strong>Phone:</strong> {m.customer?.phone || "N/A"}</p>
+                   <p className="text-red-700 font-semibold">
+                    <span className="text-gray-700">Password:</span> {m.customer?.password || "N/A"}
+                  </p>
                   <p><strong>Plan:</strong> {m.planType}</p>
                   <p><strong>Start:</strong> {new Date(m.startDate).toLocaleDateString()}</p>
                   <p><strong>End:</strong> {new Date(m.endDate).toLocaleDateString()}</p>

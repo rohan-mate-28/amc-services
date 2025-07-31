@@ -27,6 +27,7 @@ const customerSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+       
     },
     productsOwned: {
       type: mongoose.Schema.Types.ObjectId,
