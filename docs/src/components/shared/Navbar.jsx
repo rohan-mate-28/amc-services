@@ -18,7 +18,7 @@ import { ADMIN_API_END_POINT, CUSTOMER_API_END_POINT } from "@/Utils/constant";
 import { logout as logoutAction } from "@/redux/authSlice";
 import { persistor } from "@/redux/store";
 import { useState } from "react";
-
+import logo from "../../../public/logo.jpeg";
 // Admin email logic
 const ADMIN_EMAIL = "rohanmate157@gmail.com";
 
