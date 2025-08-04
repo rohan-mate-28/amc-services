@@ -136,9 +136,13 @@ const Navbar = () => {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold text-primary">
-          Aqua<span className="text-blue-600">Services</span>
-        </Link>
+         <Link to="/" className="block max-w-[10rem] sm:max-w-[12rem] md:max-w-[16rem]">
+  <img
+    src={logo}
+    alt="Shakti Logo"
+    className="w-full h-auto max-h-16 object-contain"
+  />
+</Link>
 
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-6">
