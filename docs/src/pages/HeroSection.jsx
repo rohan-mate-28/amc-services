@@ -68,7 +68,7 @@ const HeroSection = () => {
             Annual Maintenance Plans for Aqua & Water Filters
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
-            Get regular servicing, part replacement & expert support — all included with our AMC plans starting at just ₹4,000.
+            Get regular servicing, part replacement & expert support — all included with our AMC plans starting at just  ₹5,000.
           </p>
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2">
             <Button size="lg" onClick={() => navigate(user ? "/amcplan" : "/login")}>

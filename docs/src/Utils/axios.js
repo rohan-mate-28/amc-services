@@ -3,7 +3,7 @@ import { store } from '@/redux/store';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: "https://amc-services.onrender.com", 
+  baseURL: "https://api.shaktifilters.in", 
   withCredentials: true, 
 });
 axiosInstance.interceptors.response.use(

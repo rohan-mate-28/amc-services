@@ -1,6 +1,6 @@
 // Use your actual Render backend URL
-const BASE_URL = "https://amc-services.onrender.com/app/v1";
-
+const BASE_URL = "https://api.shaktifilters.in/app/v1";
+ 
 export const CUSTOMER_API_END_POINT = `${BASE_URL}/customer`;
 export const ADMIN_API_END_POINT = `${BASE_URL}/admin`;
 export const CUSTOMER_ORDER_API_END_POINT = `${BASE_URL}/customer/order`;
