@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { lazy, Suspense } from "react"
 import { Toaster } from "./components/ui/sonner.jsx"
 // import AuthValidotor from "./pages/AuthValidotor.jsx"
-
+const BottomNote = lazy(() => import("./pages/BottomNote.jsx"))
 const Home = lazy(() => import("./pages/Home.jsx"))
 const Login = lazy(() => import("./pages/Login.jsx"))
 const Register = lazy(() => import("./pages/Register.jsx"))
@@ -81,7 +81,7 @@ function App() {
       <RouterProvider router={appRouter} />
     </Suspense>
       <Toaster richColors position="top-right" />
-
+      <BottomNote />
     </>
   )
 }
