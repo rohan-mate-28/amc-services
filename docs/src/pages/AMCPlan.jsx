@@ -9,7 +9,7 @@ import axiosInstance from "../Utils/axios.js";
 const plans = [
   {
     title: "1-Year Plan",
-    price: "₹4,000",
+    price: " ₹5,000",
     originalPrice: "₹5,999",
     duration: "Valid for 12 months",
     discount: "33% OFF",
@@ -25,8 +25,8 @@ const plans = [
   },
   {
     title: "4-Year Plan",
-    price: "₹10,000",
-    originalPrice: "₹14,999",
+    price: "₹14,000",
+    originalPrice: "₹15,999",
     duration: "Valid for 48 months",
     discount: "33% OFF",
     features: [

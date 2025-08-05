@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://chimerical-treacle-110cc2.netlify.app",
+  "https://shaktifilters.in",
 ];
 
 app.use(cors({

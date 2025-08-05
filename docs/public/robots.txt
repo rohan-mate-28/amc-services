@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chimerical-treacle-110cc2.netlify.app/sitemap.xml
+Sitemap: https://shaktifilters.in/sitemap.xml
