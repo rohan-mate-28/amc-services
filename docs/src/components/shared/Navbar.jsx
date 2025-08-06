@@ -18,7 +18,7 @@ import { ADMIN_API_END_POINT, CUSTOMER_API_END_POINT } from "@/Utils/constant";
 import { logout as logoutAction } from "@/redux/authSlice";
 import { persistor } from "@/redux/store";
 import { useState } from "react";
-import logo from "../../../public/logo.jpeg";
+import logo from "../../../public/Shaktilogo.png";
 // Admin email logic
 const ADMIN_EMAIL = "rohanmate157@gmail.com";
 
@@ -29,39 +29,7 @@ const Navbar = () => {
 
   // Check if admin
   const isAdmin = user && user !== false && user.email === ADMIN_EMAIL;
-
-  // ---------------------------------------
-  // AUTH CHECK ONCE AT APP LOAD
-  // ---------------------------------------
-  // const hasCheckedRef = useRef(false);
-  // useEffect(() => {
-  //   if (user !== null) return; // Already resolved
-  //   if (hasCheckedRef.current) return;
-  //   hasCheckedRef.current = true;
-
-  //   const checkAuth = async () => {
-  //     try {
-  //       const { data } = await axiosInstance.get(`${ADMIN_API_END_POINT}/me`, { withCredentials: true });
-  //       dispatch(setUser({ ...data.user, role: "admin" }));
-  //       return;
-  //     } catch (e) {
-  //               console.warn("No active session:", e?.response?.status);
-
-  //     }
-
-  //     try {
-  //       const { data } = await axiosInstance.get(`${CUSTOMER_API_END_POINT}/me`, { withCredentials: true });
-  //       dispatch(setUser({ ...data.user, role: "customer" }));
-  //       return;
-  //     } catch (err) {
-  //       console.warn("No active session:", err?.response?.status);
-  //       dispatch(logoutAction()); // user = false
-  //     }
-  //   };
-
-  //   checkAuth();
-  // }, [user, dispatch]);
-
+ 
   // ---------------------------------------
   // LOGOUT HANDLER
   // ---------------------------------------
