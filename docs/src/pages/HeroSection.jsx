@@ -3,17 +3,17 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import img1 from "@/assets/OIP.jpg";
+// import img1 from "@/assets/OIP.jpg";
 import img2 from "@/assets/Machine.jpeg";
 import img3 from "@/assets/theme.jpeg";
-import img4 from "@/assets/Features.jpg";
+import img4 from "@/assets/Features.jpeg";
 import img5 from "@/assets/download.webp";
 
 
 const HeroSection = () => {
   const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
-  const images = [img1, img2, img3, img4,img5];
+  const images = [  img2, img3, img4,img5];
 
   const scrollRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,7 +48,7 @@ const HeroSection = () => {
   {images.map((img, index) => (
     <div
       key={index}
-      className="flex-shrink-0 w-full aspect-[4/3] snap-center rounded-xl relative overflow-hidden"
+      className="flex-shrink-0 w-full aspect-[12/8] snap-center rounded-xl relative overflow-hidden"
     >
       <img
         src={img}
