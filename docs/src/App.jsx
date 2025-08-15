@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { lazy, Suspense } from "react"
 import { Toaster } from "./components/ui/sonner.jsx"
-const PastWork = lazy(() => import("./pages/pastwork.jsx"))
+const PastWork = lazy(() => import("./pages/PastWork.jsx"));
 const BottomNote = lazy(() => import("./pages/BottomNote.jsx"))
 const Home = lazy(() => import("./pages/Home.jsx"))
 const Login = lazy(() => import("./pages/Login.jsx"))
