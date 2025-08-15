@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Users, Package, Smile, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const stats = [
   {
@@ -60,6 +62,13 @@ const StatsSection = () => {
             </motion.div>
           ))}
         </div>
+        <Button
+          asChild
+          className="mt-12 px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+        >
+          <Link to="/past-work">Our Past Work</Link>
+        </Button>
+
       </div>
     </section>
   );

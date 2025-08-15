@@ -13,13 +13,13 @@ const OrderConfirmationBox = () => {
 
       <div className="flex items-center justify-center gap-2 mt-4 text-blue-700 font-semibold text-lg sm:text-xl">
         <Phone className="h-5 w-5" />
-        +91 98765 43210
+        +91 87885 70107
       </div>
 
       {/* Call Now Button */}
       <div className="flex justify-center mt-4">
         <a
-          href="tel:+919876543210"
+          href="tel:+918788570107"
           className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition duration-200"
         >
           Call Now

@@ -2,7 +2,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
-import { LogOut, User2, Menu, Loader2 } from "lucide-react";
+import { LogOut, User2, Menu, Loader2, Phone } from "lucide-react";
 import { Popover, PopoverTrigger, PopoverContent } from "../ui/popover";
 import {
   Sheet,
@@ -29,7 +29,7 @@ const Navbar = () => {
 
   // Check if admin
   const isAdmin = user && user !== false && user.email === ADMIN_EMAIL;
- 
+
   // ---------------------------------------
   // LOGOUT HANDLER
   // ---------------------------------------
@@ -48,7 +48,7 @@ const Navbar = () => {
       toast.success("Logged out");
     } catch (error) {
       console.warn("Logout request error:", error?.response?.status, error?.message);
-     } finally {
+    } finally {
       // Always clear client auth
       dispatch(logoutAction());      // user = false
       await persistor.purge?.();     // clear persisted redux
@@ -104,13 +104,28 @@ const Navbar = () => {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-         <Link to="/" className="block max-w-[10rem] sm:max-w-[12rem] md:max-w-[16rem]">
-  <img
-    src={logo}
-    alt="Shakti Logo"
-    className="w-full h-auto max-h-16 object-contain"
-  />
-</Link>
+        <div className="flex items-center gap-4">
+          <Link
+            to="/"
+            className="block max-w-[10rem] sm:max-w-[12rem] md:max-w-[16rem]"
+          >
+            <img
+              src={logo}
+              alt="Shakti Logo"
+              className="w-full h-auto max-h-16 object-contain"
+            />
+          </Link>
+
+          <a
+            href="tel:+918788570107"
+            className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
+          >
+            <Phone className="h-5 w-5" />
+            {/* Show number on desktop, hide on mobile */}
+            <span className="hidden sm:inline">+91 87885 70107</span>
+          </a>
+        </div>
+
 
         {/* Desktop */}
         <div className="hidden lg:flex items-center gap-6">
