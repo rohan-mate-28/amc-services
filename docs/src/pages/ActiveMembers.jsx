@@ -2,24 +2,27 @@ import React, { useEffect } from "react";
 import axiosInstance from "../Utils/axios.js";
 import { useDispatch, useSelector } from "react-redux";
 import { setMembers, setLoading, setError } from "@/redux/membersSlice";
-import { ADMIN_SERVICE_MEMBER_API_END_POINT } from "@/Utils/constant";
+import { ADMIN_GET_ORDER_API_END_POINT, ADMIN_SERVICE_MEMBER_API_END_POINT } from "@/Utils/constant";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const ActiveMembers = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { Members, loading } = useSelector((state) => state.members);
 
+  // Fetch members
   useEffect(() => {
     const fetchMembers = async () => {
       try {
         dispatch(setLoading(true));
-        const { data } = await axiosInstance.get(`${ADMIN_SERVICE_MEMBER_API_END_POINT}/getAllMembers`, {
-          withCredentials: true,
-        });
+        const { data } = await axiosInstance.get(
+          `${ADMIN_SERVICE_MEMBER_API_END_POINT}/getAllMembers`,
+          { withCredentials: true }
+        );
         dispatch(setMembers(data.members || []));
       } catch (err) {
         console.error("Fetch members failed", err);
@@ -31,6 +34,21 @@ const ActiveMembers = () => {
 
     fetchMembers();
   }, [dispatch]);
+
+  // Delete order handler
+  const handleDelete = async (orderId) => {
+    try {
+      //toast.info(`Deleting order...${ADMIN_GET_ORDER_API_END_POINT}/${orderId}/delete`);
+      await axiosInstance.delete(`${ADMIN_GET_ORDER_API_END_POINT}/${orderId}/delete`, { withCredentials: true });
+
+      // Remove from redux state
+      toast.success("Order deleted successfully");
+      dispatch(setMembers(Members.filter((m) => m._id !== orderId)));
+    } catch (err) {
+      console.error("Delete order failed", err);
+      // toast.error("Failed to delete order");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-6 px-4 sm:px-6 lg:px-8">
@@ -60,21 +78,28 @@ const ActiveMembers = () => {
                 </CardHeader>
                 <CardContent className="space-y-1 text-sm text-gray-700">
                   <p><strong>Phone:</strong> {m.customer?.phone || "N/A"}</p>
-                   <p className="text-red-700 font-semibold">
-                    <span className="text-gray-700">Password:</span> {m.customer?.password || "N/A"}
-                  </p>
                   <p><strong>Plan:</strong> {m.planType}</p>
                   <p><strong>Start:</strong> {new Date(m.startDate).toLocaleDateString()}</p>
                   <p><strong>End:</strong> {new Date(m.endDate).toLocaleDateString()}</p>
-                  <Button
-                    size="sm"
-                    className="mt-3 bg-blue-600 hover:bg-blue-700 text-white"
-                    onClick={() =>
-                      navigate(`/admin/customer/${m.customer?._id}/service-history`)
-                    }
-                  >
-                    View Service History
-                  </Button>
+
+                  <div className="flex gap-2 mt-3">
+                    <Button
+                      size="sm"
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() =>
+                        navigate(`/admin/customer/${m.customer?._id}/service-history`)
+                      }
+                    >
+                      View Service History
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="destructive"
+                      onClick={() => handleDelete(m._id)}
+                    >
+                      Delete
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
