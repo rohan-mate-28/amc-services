@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import img1 from "../asset_pastwork/Avinash.jpeg";
 import img2 from "../asset_pastwork/Chowk.jpeg";
 import img3 from "../asset_pastwork/dragrawal.jpeg";
-import img4 from "../asset_pastwork/Gadawadi.jpeg";
 import img5 from "../asset_pastwork/Mahisgaon.jpeg";
 import img6 from "../asset_pastwork/Mishra.jpeg";
 import img7 from "../asset_pastwork/Prathamikshala.jpeg";
@@ -18,7 +17,6 @@ const pastWorkItems = [
       { src: img1, title: "Avinash , Spine Road" },
       { src: img2, title: "Chowk , Mumbai" },
       { src: img3, title: "Dr Agrawal Hospital , Viman Nagar" },
-      { src: img4, title: "Gadakwadi , khed" },
       { src: img5, title: "Mahisgaon , AhilyaNagar" },
       { src: img6, title: "Mishra Pimpri" },
       { src: img7, title: "Prathamik Shala , Retawadi" },

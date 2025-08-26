@@ -74,6 +74,37 @@ export const getAllOrders = async (req, res) => {
   }
 };
 
+export const deleteOrder = async (req, res) => {
+  try {
+     
+    const { id } = req.params; // get id properly
+    console.log("DELETE order route hit with id:", id);
+
+    const order = await Order.findById(id);
+    if (!order) {
+      return res.status(404).json({
+        message: "Order not found",
+        success: false,
+      });
+    }
+    if (order.status === "Confirmed") {
+      await Customer.findByIdAndUpdate(order.customer, { isMember: false });
+    }
+    await Order.findByIdAndDelete(req.params.id);
+
+    return res.status(200).json({
+      success: true,
+      message: "Order deleted successfully",
+    });
+  } catch (err) {
+    console.error("Cannot Delete Order Now", err);
+    return res.status(500).json({
+      message: "Server Issue. Cannot Delete Order Now",
+      success: false,
+    });
+  }
+};
+
  export const confirmOrder = async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);

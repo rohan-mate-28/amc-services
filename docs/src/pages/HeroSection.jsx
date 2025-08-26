@@ -3,17 +3,17 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-// import img1 from "@/assets/OIP.jpg";
-import img2 from "@/assets/Machine.jpeg";
+import img1 from "@/assets/no.jpeg";
+
 import img3 from "@/assets/theme.jpeg";
 import img4 from "@/assets/Features.jpeg";
-import img5 from "@/assets/download.webp";
-
+import img5 from "@/assets/shakti.jpeg";
+import img6 from "@/assets/purifier.jpeg";
 
 const HeroSection = () => {
   const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
-  const images = [  img2, img3, img4,img5];
+  const images = [img1, img3, img4, img5, img6];
 
   const scrollRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -38,27 +38,27 @@ const HeroSection = () => {
   return (
     <section className="bg-gradient-to-b from-blue-50 to-white py-16 px-4 sm:px-8 lg:px-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
-        
+
         {/* Image Carousel */}
         <div className="order-1 lg:order-2 flex justify-center w-full">
-         <div
-  ref={scrollRef}
-  className="w-full flex overflow-x-scroll scroll-smooth scrollbar-hide rounded-xl shadow-lg snap-x snap-mandatory"
->
-  {images.map((img, index) => (
-    <div
-      key={index}
-      className="flex-shrink-0 w-full aspect-[12/8] snap-center rounded-xl relative overflow-hidden"
-    >
-      <img
-        src={img}
-        alt={`Image ${index + 1}`}
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="lazy"
-      />
-    </div>
-  ))}
-</div>
+          <div
+            ref={scrollRef}
+            className="w-full flex overflow-x-scroll scroll-smooth scrollbar-hide rounded-xl shadow-lg snap-x snap-mandatory"
+          >
+            {images.map((img, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-full aspect-[14/10] snap-center rounded-xl relative overflow-hidden"
+              >
+                <img
+                  src={img}
+                  alt={`Image ${index + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
 
         </div>
 
