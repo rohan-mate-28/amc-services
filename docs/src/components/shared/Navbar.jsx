@@ -20,7 +20,7 @@ import { persistor } from "@/redux/store";
 import { useState } from "react";
 import logo from "../../../public/Shaktilogo.png";
 // Admin email logic
-const ADMIN_EMAIL = "rohanmate157@gmail.com";
+const ADMIN_EMAIL = "mgmaster786@gmail.com";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth); // user can be null, false, or user object
@@ -117,12 +117,12 @@ const Navbar = () => {
           </Link>
 
           <a
-            href="tel:+918788570107"
+            href="tel: +918087705293"
             className="flex items-center gap-2 text-gray-700 hover:text-blue-600"
           >
             <Phone className="h-5 w-5" />
             {/* Show number on desktop, hide on mobile */}
-            <span className="hidden sm:inline">+91 87885 70107</span>
+            <span className="hidden sm:inline">+91 80877 05293</span>
           </a>
         </div>
 

@@ -19,7 +19,7 @@ const ProductCarousel = () => {
   const navigate = useNavigate();
   const { user } = useSelector((store) => store.auth);
   
-  const isAdmin = user?.email === "rohanmate157@gmail.com";
+  const isAdmin = user?.email === "mgmaster786@gmail.com";
   const dispatch = useDispatch();
   const { products, loading } = useSelector((state) => state.product);
   const scrollRef = useRef(null);
