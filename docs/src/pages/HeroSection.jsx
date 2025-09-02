@@ -3,17 +3,17 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import img1 from "@/assets/no.jpeg";
-
+import img1 from "@/assets/purifier.jpeg";
+import img2 from "@/assets/machine.jpeg";
 import img3 from "@/assets/theme.jpeg";
 import img4 from "@/assets/Features.jpeg";
 import img5 from "@/assets/shakti.jpeg";
-import img6 from "@/assets/purifier.jpeg";
+import img6 from "@/assets/no.jpeg";
 
 const HeroSection = () => {
   const { user } = useSelector((store) => store.auth);
   const navigate = useNavigate();
-  const images = [img1, img3, img4, img5, img6];
+  const images = [img1, img2 , img3, img4, img5, img6];
 
   const scrollRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);

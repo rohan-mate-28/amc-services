@@ -26,11 +26,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-700 font-medium">
           <div className="flex items-center gap-2 hover:text-blue-700 transition">
             <FaPhoneAlt className="text-blue-600" />
-            <span>+91 87885 70107</span>
+            <span>+91 80877 05293</span>
           </div>
           <div className="flex items-center gap-2 hover:text-green-700 transition">
             <FaWhatsapp className="text-green-600" />
-            <span>+91 80877 05293</span>
+            <span>+91 87885 70107</span>
           </div>
         </div>
       </div>

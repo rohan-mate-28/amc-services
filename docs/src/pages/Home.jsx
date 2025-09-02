@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 const Navbar=lazy(()=>import("../components/shared/Navbar.jsx"));
-import React from 'react'
+import React from 'react';
+const TermsAndConditions=lazy(()=>import('./TermsAndConditions.jsx'));
 const StatsSection = lazy(() => import('./StatsSection.jsx'));
 const HeroSection=lazy(()=>import("./HeroSection.jsx"));
 const Footer =lazy(()=>import ("./Footer.jsx"));
@@ -20,6 +21,9 @@ const Home = () => {
         <StatsSection />
       </Suspense>
 
+     <Suspense fallback={<div>Loading Stats...</div>}>
+        <TermsAndConditions />
+      </Suspense>
       <Suspense fallback={<div>Loading FAQs...</div>}>
         <FAQSection />
       </Suspense>

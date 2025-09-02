@@ -30,7 +30,7 @@ const Login = () => {
     try {
       dispatch(setloading(true));
       const endpoint =
-        form?.email === "rohanmate157@gmail.com"
+        form?.email === "mgmaster786@gmail.com"
           ? `${ADMIN_API_END_POINT}/login`
           : `${CUSTOMER_API_END_POINT}/login`;
       const { data } = await axiosInstance.post(
@@ -42,7 +42,7 @@ const Login = () => {
       if (data.success) {
         toast.success(data.message || "Login successful");
         dispatch(setUser(data.user));
-        if (data.user.email === "rohanmate157@gmail.com") {
+        if (data.user.email === "mgmaster786@gmail.com") {
           navigate("/");
         } else {
           navigate("/");
