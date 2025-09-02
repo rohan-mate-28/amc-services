@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import img1 from "@/assets/purifier.jpeg";
-import img2 from "@/assets/Machine.jpeg";
+import img2 from "@/assets/machine.jpeg";
 import img3 from "@/assets/theme.jpeg";
 import img4 from "@/assets/Features.jpeg";
 import img5 from "@/assets/shakti.jpeg";
